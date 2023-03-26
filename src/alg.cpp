@@ -2,14 +2,14 @@
 int countPairs1(int *arr, int len, int value) {
     int count = 0;
     for (int i = 0; i < len; i++) {
-        for (int j = 0; j < len; i++) {
+        for (int j = i + 1; j < len; i++) {
             if (arr[i] + arr[j] == value) {
                 count += 1;
             }
         }
     }
     if (count != 0) {
-        return count / 2;
+        return count;
     } else {
         return 0;
     }
