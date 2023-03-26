@@ -29,7 +29,7 @@ int countPairs2(int* arr, int len, int value) {
          return 0;
     }
 }
-    int binsearch(int* arr, int l, int r, int value) {
+int binsearch(int* arr, int l, int r, int value) {
     int mid = 0;
     int k = 0;
     bool f = true;
