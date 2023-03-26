@@ -14,21 +14,10 @@ int countPairs1(int *arr, int len, int value) {
         return 0;
     }
 }
-int countPairs2(int *arr, int len, int value) {
+int countPairs2(int* arr, int len, int value) {
     int count = 0;
-    int index = 0;
-    int w = 0;
-    for (int i = len - 1; i > 0; i--) {
-        if (arr[i] < value) {
-            index = i;
-            break;
-        } else {
-            continue;
-        }
-    }
-    for (int i = 0; i <= index; i++) {
-        w += 1;
-        for (int j = w; j <= index; j++) {
+    for (int i = 0; i < len; i++) {
+        for (int j = len - 1; j > 0; j--) {
             if (arr[i] + arr[j] == value) {
                 count += 1;
             }
@@ -36,37 +25,46 @@ int countPairs2(int *arr, int len, int value) {
     }
     if (count != 0) {
         return count;
-    } else {
+    }
+    else {
         return 0;
     }
 }
-int countPairs3(int *arr, int len, int value) {
-    int l = 0;
-    int r = len - 1;
+    int binsearch(int* arr, int l, int r, int value) {
     int mid = 0;
-    int count = 0;
+    int k = 0;
     bool f = true;
+    while ((l <= r) && (f)) {
+        mid = (l + r) / 2;
+        if (arr[mid] == value) {
+            f = false;
+            k = arr[mid];
+        }
+        if (arr[mid] > value) {
+            r = mid - 1;
+        }
+        else {
+            l = mid + 1;
+        }
+    }
+    if (f) {
+        return k;
+    }
+    else {
+        return 0;
+    }
+}
+int countPairs3(int* arr, int len, int value) {
+    int count = 0;
     for (int i = 0; i < len; i++) {
-        if (arr[i] <= 50) {
-            while ((l <= r) && (f)) {
-                mid = (l + r) / 2;
-                if (arr[mid] + arr[i] == value) {
-                    f = false;
-                }
-                if (value - arr[i] < mid) {
-                    r = mid - 1;
-                } else {
-                    l = mid + 1;
-                }
-            }
-            if (!f) {
-                count += 1;
-            }
+        if (arr[i] + binsearch(arr, i, len, value - arr[i]) == value) {
+            count += 1;
         }
     }
     if (count != 0) {
         return count;
-    } else {
+    }
+    else {
         return 0;
     }
 }
