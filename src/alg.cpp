@@ -54,7 +54,8 @@ int binsearch(int* arr, int l, int r, int value) {
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
     for (int i = 0; i < len; i++) {
-        if (arr[i] + binsearch(arr, i, len, value - arr[i]) == value) {
+        val = value - arr[i]
+        if (arr[i] + binsearch(arr, i, len, val) == value) {
             count += 1;
         }
     }
