@@ -45,7 +45,7 @@ int binsearch(int* arr, int l, int r, int value) {
              l = mid + 1;
         }
     }
-    if (f) {
+    if (!f) {
         return k;
     } else {
          return 0;
