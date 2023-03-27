@@ -43,8 +43,7 @@ int binsearch(int* arr, int l, int r, int value) {
         }
         if (arr[mid] > value) {
             r = mid - 1;
-        }
-        else {
+        } else {
             l = mid + 1;
         }
     }
