@@ -35,10 +35,11 @@ int binsearch(int* arr, int l, int r, int value) {
                 k += 1;
             }
             k = mid - 1;
-            while (arr[k] == value && k < r) {
+            while (arr[k] == value && k > l) {
                 count += 1;
                 k -= 1;
             }
+            break;
         }
         if (arr[mid] > value) {
             r = mid - 1;
