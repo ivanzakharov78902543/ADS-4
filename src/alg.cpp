@@ -37,7 +37,17 @@ int binsearch(int* arr, int l, int r, int value) {
         mid = (l + r) / 2;
         if (arr[mid] == value) {
             f = false;
-            k = arr[mid];
+            count += 1;
+            k = mid + 1;
+            while (arr[k] == value && k < r) {
+                count += 1;
+                k += 1;
+            }
+            k = mid - 1;
+            while (arr[k] == value && k < r) {
+                count += 1;
+                k -= 1;
+            }
         }
         if (arr[mid] > value) {
             r = mid - 1;
@@ -46,7 +56,7 @@ int binsearch(int* arr, int l, int r, int value) {
         }
     }
     if (!f) {
-        return k;
+        return count;
     } else {
          return 0;
     }
@@ -54,10 +64,7 @@ int binsearch(int* arr, int l, int r, int value) {
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
     for (int i = 0; i < len; i++) {
-        int val = value - arr[i];
-        if (arr[i] + binsearch(arr, i, len, val) == value) {
-            count += 1;
-        }
+        count += binsearch(arr, i, len, value - arr[i]); 
     }
     if (count != 0) {
         return count;
