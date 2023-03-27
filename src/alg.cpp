@@ -24,9 +24,8 @@ int countPairs2(int* arr, int len, int value) {
 int binsearch(int* arr, int l, int r, int value) {
     int mid = 0;
     int k = 0;
-    bool f = true;
     int count = 0;
-    while ((l <= r) && (f)) {
+    while (l <= r) {
         mid = (l + r) / 2;
         if (arr[mid] == value) {
             f = false;
