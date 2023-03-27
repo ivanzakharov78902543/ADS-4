@@ -13,7 +13,7 @@ int countPairs1(int *arr, int len, int value) {
 int countPairs2(int* arr, int len, int value) {
     int count = 0;
     for (int i = 0; i < len; i++) {
-        for (int j = len - 1; j > 0; j--) {
+        for (int j = len - 1; i < j; j--) {
             if (arr[i] + arr[j] == value) {
                 count += 1;
             }
@@ -52,7 +52,7 @@ int binsearch(int* arr, int l, int r, int value) {
 }
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len - 1; i++) {
         count += binsearch(arr, i, len, value - arr[i]);
     }
     return count;
