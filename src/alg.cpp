@@ -28,7 +28,6 @@ int binsearch(int* arr, int l, int r, int value) {
     while (l <= r) {
         mid = (l + r) / 2;
         if (arr[mid] == value) {
-            f = false;
             count += 1;
             k = mid + 1;
             while (arr[k] == value && k < r) {
