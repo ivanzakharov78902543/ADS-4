@@ -1,10 +1,10 @@
 // Copyright 2021 NNTU-CS
-int countPairs1(int *arr, int len, int value) {
+int countPairs1(int* arr, int len, int value) {
     int count = 0;
     for (int i = 0; i < len; i++) {
         for (int j = i + 1; j < len; j++) {
             if (arr[i] + arr[j] == value) {
-                count += 1;
+                count = count + 1;
             }
         }
     }
@@ -43,8 +43,9 @@ int binsearch(int* arr, int l, int r, int value) {
         }
         if (arr[mid] > value) {
             r = mid - 1;
-        } else {
-             l = mid + 1;
+        }
+        else {
+            l = mid + 1;
         }
     }
     return count;
