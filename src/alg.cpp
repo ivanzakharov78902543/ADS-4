@@ -42,17 +42,18 @@ int binsearch(int* arr, int l, int r, int value) {
             break;
         }
         if (arr[mid] > value) {
-            r = mid - 1;
+            r = mid;
         } else {
-            l = mid + 1;
+            l = mid;
         }
     }
     return count;
 }
 int countPairs3(int* arr, int len, int value) {
     int count = 0;
+    int val = 0;
     for (int i = 0; i < len - 1; i++) {
-        int val = value - arr[i];
+        val = value - arr[i];
         count += binsearch(arr, i, len, val);
     }
     return count;
